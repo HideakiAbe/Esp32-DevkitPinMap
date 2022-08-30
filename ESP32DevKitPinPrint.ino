@@ -119,13 +119,60 @@ void dispMapESP_DEVKIT() {
   }
   Serial.println("//                    -----USB-----");
 }
+
+struct pinMapping WT32_SC01_PinNameLeft[20] = {
+  "5V 　　　｜", -1,
+  "3V3　　　｜", -1,
+  "GND　　　｜", -1,
+  "GND　　　｜", -1,
+  "SVP     ｜", 36,
+  "SVR     ｜", 39,
+  "GPIO34  ｜", 34,
+  "GPIO19  ｜", 19,
+  "GPIO18  ｜", 18,
+  "GPIO21  ｜", 21,
+  "GPIO01  ｜", 1,
+  "GPIO12  ｜", 12,
+  "GPIO14  ｜", 14,
+  "GPIO27  ｜", 27,
+  "GPIO32  ｜", 32,
+  "GPIO33  ｜", 33,
+  "GND     ｜", -1,
+  "GND     ｜", -1,
+  "3V3     ｜", -1,
+  "5V      ｜", -1,
+};
+
+struct pinMapping WT32_SC01_PinNameRight[20] = {
+  "｜      5V", -1,
+  "｜     3V3", -1,
+  "｜     GND", 36,
+  "｜     GND", 39,
+  "｜  GPIO04", 4,
+  "｜  GPIO02", 2,
+  "｜  GPIO15", 15,
+  "｜  GPIO13", 13,
+  "｜      EN", -1,
+  "｜  GPIO22", 22,
+  "｜  GPIO23", 23,
+  "｜  GPIO00", 0,
+  "｜  GPIO05", 5,
+  "｜  GPIO25", 25,
+  "｜  GPIO26", 26,
+  "｜  GPIO35", 35,
+  "｜     GND", -1,
+  "｜     GND", -1,
+  "｜     3V3", -1,
+  "｜      5V", -1
+};
+
 void dispMapWT32_SC01() {
   Serial.println();
   Serial.println("//               BOARD WT32-SC01  ");
   Serial.println("//                 ┏━ J5━┓");
   for (int i = 0; i < 20; i++) {
     Serial.print("//");
-    switch (pinNameLeft[i].pinNum) {
+    switch (WT32_SC01_PinNameLeft[i].pinNum) {
       case TX:       Serial.print("      TX"); break;
       case RX:       Serial.print("      RX"); break;
       case SD_CS:    Serial.print("   SD_CS"); break;
@@ -146,7 +193,7 @@ void dispMapWT32_SC01() {
     Serial.printf(" %s ", pinNameLeft[i].name);
     Serial.printf("%-2d %2d", 2 * i + 1, 2 * i + 2);
     Serial.printf("%s ", pinNameRight[i].name);
-    switch (pinNameRight[i].pinNum) {
+    switch (WT32_SC01_PinNameRight[i].pinNum) {
       case TX:       Serial.print("      TX"); break;
       case RX:       Serial.print("      RX"); break;
       case SD_CS:    Serial.print("   SD_CS"); break;
