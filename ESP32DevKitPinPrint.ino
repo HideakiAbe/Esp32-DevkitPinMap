@@ -9,14 +9,14 @@ const int SD_CS   = 5;
 const int LCD_CS = 16;
 const int LCD_RST = 4;
 const int LCD_DC = 17;
-
+const int LCD_BL = 35;
 
 const int I2C_SDA = 21;
 const int I2C_SCL = 22;
 
 const int I2S_OUT = 25;
 const int I2S_LRC = 26;
-const int I2S_BLK = 27;
+const int I2S_BCK = 27;
 
 //重複があるとコンパイル時にエラーとなるので、重複のチェックとし利用してください。
 
@@ -92,7 +92,7 @@ void dispMapESP_DEVKIT() {
       case LCD_RST:     Serial.print(" LCD_RST"); break;
       case I2S_OUT:     Serial.print(" I2S_OUT"); break;
       case I2S_LRC:     Serial.print(" I2S_LRC"); break;
-      case I2S_BLK:     Serial.print(" I2S_BLK"); break;
+      case I2S_BCK:     Serial.print(" I2S_BCK"); break;
       default:          Serial.print("        "); break;
     }
     Serial.printf(" %s ", pinNameLeft[i].name);
@@ -112,7 +112,7 @@ void dispMapESP_DEVKIT() {
       case LCD_RST:     Serial.print(" LCD_RST"); break;
       case I2S_OUT:     Serial.print(" I2S_OUT"); break;
       case I2S_LRC:     Serial.print(" I2S_LRC"); break;
-      case I2S_BLK:     Serial.print(" I2S_BLK"); break;
+      case I2S_BCK:     Serial.print(" I2S_BCK"); break;
       default:          Serial.print("        "); break;
     }
     Serial.println();
@@ -187,7 +187,7 @@ void dispMapWT32_SC01() {
       case LCD_BL:   Serial.print("  LCD_BL"); break;
       case I2S_OUT:  Serial.print(" I2S_OUT"); break;
       case I2S_LRC:  Serial.print(" I2S_LRC"); break;
-      case I2S_BLK:  Serial.print(" I2S_BLK"); break;
+      case I2S_BCK:  Serial.print(" I2S_BCK"); break;
       default:       Serial.print("        "); break;
     }
     Serial.printf(" %s ", pinNameLeft[i].name);
@@ -208,7 +208,7 @@ void dispMapWT32_SC01() {
       case LCD_BL:   Serial.print("  LCD_BL"); break;
       case I2S_OUT:  Serial.print(" I2S_OUT"); break;
       case I2S_LRC:  Serial.print(" I2S_LRC"); break;
-      case I2S_BLK:  Serial.print(" I2S_BLK"); break;
+      case I2S_BCK:  Serial.print(" I2S_BCK"); break;
       default:       Serial.print("        "); break;
     }
     Serial.println();
