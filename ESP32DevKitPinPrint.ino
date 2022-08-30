@@ -72,7 +72,7 @@ struct pinMapping pinNameRight[19] = {
 };
 
 
-void dispMap() {
+void dispMapESP_DEVKIT() {
   Serial.println();
   Serial.println("//                 BOARD ESP-DEVKIT  ");
   Serial.println("//                    ---ANTENA----");
@@ -119,11 +119,60 @@ void dispMap() {
   }
   Serial.println("//                    -----USB-----");
 }
-
+void dispMapWT32_SC01() {
+  Serial.println();
+  Serial.println("//               BOARD WT32-SC01  ");
+  Serial.println("//                 ┏━ J5━┓");
+  for (int i = 0; i < 20; i++) {
+    Serial.print("//");
+    switch (pinNameLeft[i].pinNum) {
+      case TX:       Serial.print("      TX"); break;
+      case RX:       Serial.print("      RX"); break;
+      case SD_CS:    Serial.print("   SD_CS"); break;
+      case SPI_MOSI: Serial.print("SPI_MOSI"); break;
+      case SPI_MISO: Serial.print("SPI_MISO"); break;
+      case SPI_SCK:  Serial.print(" SPI_SCK"); break;
+      case I2C_SDA:  Serial.print(" I2C_SDA"); break;
+      case I2C_SCL:  Serial.print(" I2C_SCL"); break;
+      case LCD_CS:   Serial.print("  LCD_CS"); break;
+      case LCD_DC:   Serial.print("  LCD_DC"); break;
+      case LCD_RST:  Serial.print(" LCD_RST"); break;
+      case LCD_BL:   Serial.print("  LCD_BL"); break;
+      case I2S_OUT:  Serial.print(" I2S_OUT"); break;
+      case I2S_LRC:  Serial.print(" I2S_LRC"); break;
+      case I2S_BLK:  Serial.print(" I2S_BLK"); break;
+      default:       Serial.print("        "); break;
+    }
+    Serial.printf(" %s ", pinNameLeft[i].name);
+    Serial.printf("%-2d %2d", 2 * i + 1, 2 * i + 2);
+    Serial.printf("%s ", pinNameRight[i].name);
+    switch (pinNameRight[i].pinNum) {
+      case TX:       Serial.print("      TX"); break;
+      case RX:       Serial.print("      RX"); break;
+      case SD_CS:    Serial.print("   SD_CS"); break;
+      case SPI_MOSI: Serial.print("SPI_MOSI"); break;
+      case SPI_MISO: Serial.print("SPI_MISO"); break;
+      case SPI_SCK:  Serial.print(" SPI_SCK"); break;
+      case I2C_SDA:  Serial.print(" I2C_SDA"); break;
+      case I2C_SCL:  Serial.print(" I2C_SCL"); break;
+      case LCD_CS:   Serial.print("  LCD_CS"); break;
+      case LCD_DC:   Serial.print("  LCD_DC"); break;
+      case LCD_RST:  Serial.print(" LCD_RST"); break;
+      case LCD_BL:   Serial.print("  LCD_BL"); break;
+      case I2S_OUT:  Serial.print(" I2S_OUT"); break;
+      case I2S_LRC:  Serial.print(" I2S_LRC"); break;
+      case I2S_BLK:  Serial.print(" I2S_BLK"); break;
+      default:       Serial.print("        "); break;
+    }
+    Serial.println();
+  }
+  Serial.println("//                 ┗━ J5━┛");
+}
 void setup() {
   Serial.begin(115200);
   delay(100);
-  dispMap();
+  dispMapESP_DEVKIT();
+  dispMapWT32_SC01
 }
 
 void loop() {
