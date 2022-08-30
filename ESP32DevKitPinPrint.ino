@@ -172,7 +172,7 @@ void setup() {
   Serial.begin(115200);
   delay(100);
   dispMapESP_DEVKIT();
-  dispMapWT32_SC01
+  dispMapWT32_SC01();
 }
 
 void loop() {
